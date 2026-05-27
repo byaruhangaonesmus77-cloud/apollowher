@@ -66,7 +66,7 @@
 </head>
 <body>
   <h1>💖 To My Lovely Hellen 💖</h1>
-  <p>You are my sunshine 🌞, my happiness 😊, and my forever love 💕</p>
+  <p>You are my sunshine 🌞, my happiness 😊, and my forever love 💕and am glad that i found you</p>
 
   <!-- Background Music -->
   <audio controls autoplay loop>
@@ -101,59 +101,6 @@
 </button>
 
 
-<!-- Surprise Message (shows first for 8 seconds) -->
-<p id="surprise" style="font-size:28px; margin-top:20px; 
-   font-family:'Brush Script MT', cursive; 
-   color:#ff1493; /* sweet deep pink */
-   text-shadow: 0 0 10px #fff, 0 0 20px #ff69b4;
-   animation: fadeIn 3s; 
-   position: relative; 
-   z-index: 1000;">
-  💖🌹 Hellen, you are my forever love 💕💍  
-  🌞✨ You make my world brighter every day 🌈💫  
-  🙏💎 Thank you for accepting to be part of my life 💕🌸  
-  💎🌹 I’m glad I found you amidst this wicked generation 💖🌟  
-  💕💐 The care, love and kindness you show me is top notch 🌷💝  
-  💪🔥 You’ve been my strength even in my weakest points 💞🌻  
-  📞💌 You always show up whenever I call upon you and I appreciate it deeply 🌹💖  
-  💍💞 I promise to love you always and never let you down 💕🌹  
-  🌈💫 I’m here to stay in the good and bad times — because that’s what true love means 💖🌟  
-  👨‍👩‍👧💝 I also appreciate the parents and siblings who raised such a beautiful soul 🌹💐  
-</p>
-
-<style>
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-</style>
-
-<script>
-  let slides = document.querySelectorAll('.slideshow img');
-  let index = 0;
-  let slideshowInterval;
-
-  // Start slideshow only after 8 seconds
-  setTimeout(() => {
-    // Hide the message once slideshow begins
-    document.getElementById('surprise').style.display = 'none';
-
-    // Start slideshow
-    slideshowInterval = setInterval(() => {
-      slides[index].classList.remove('active');
-      index = (index + 1) % slides.length;
-      slides[index].classList.add('active');
-    }, 3000);
-  }, 8000); // 8 seconds delay
-</script>
-  
-
-
-
-
-
-
-  
 
 
   <script>

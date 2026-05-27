@@ -100,13 +100,14 @@
   💌 Click for Surprise
 </button>
 
-
 <!-- Surprise Message (hidden at first) -->
-<p id="surprise" style="display:none; font-size:26px; margin-top:20px; 
+<p id="surprise" style="display:none; font-size:28px; margin-top:20px; 
    font-family:'Brush Script MT', cursive; 
-   color:#ff1493; /* deep pink */
+   color:#ff1493; /* sweet deep pink */
    text-shadow: 0 0 10px #fff, 0 0 20px #ff69b4;
-   animation: fadeIn 3s; position: relative; z-index: 10;">
+   animation: fadeIn 3s; 
+   position: relative; 
+   z-index: 1000;">
   💖🌹 Hellen, you are my forever love 💕💍  
   🌞✨ You make my world brighter every day 🌈💫  
   🙏💎 Thank you for accepting to be part of my life 💕🌸  
@@ -125,6 +126,40 @@
     to { opacity: 1; }
   }
 </style>
+
+<script>
+  let slides = document.querySelectorAll('.slideshow img');
+  let index = 0;
+  let rounds = 0;
+  let surpriseShown = false;
+  let slideshowInterval;
+
+  function startSlideshow() {
+    slideshowInterval = setInterval(() => {
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+
+      // After first full round, show surprise and pause slideshow
+      if (index === 0) {
+        rounds++;
+        if (rounds === 1 && !surpriseShown) {
+          let surprise = document.getElementById('surprise');
+          surprise.style.display = 'block';
+          surpriseShown = true;
+
+          // Pause slideshow for 10 seconds
+          clearInterval(slideshowInterval);
+          setTimeout(startSlideshow, 10000);
+        }
+      }
+    }, 3000);
+  }
+
+  // Start slideshow initially
+  startSlideshow();
+</script>
+
 
 
 

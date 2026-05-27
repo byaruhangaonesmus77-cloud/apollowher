@@ -123,27 +123,37 @@
 </style>
 
 <script>
-  // Slideshow logic
   let slides = document.querySelectorAll('.slideshow img');
   let index = 0;
-  let rounds = 0; // count how many times slideshow cycles
+  let rounds = 0;
   let surpriseShown = false;
+  let slideshowInterval;
 
-  setInterval(() => {
-    slides[index].classList.remove('active');
-    index = (index + 1) % slides.length;
-    slides[index].classList.add('active');
+  function startSlideshow() {
+    slideshowInterval = setInterval(() => {
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
 
-    // Show surprise only after first full round
-    if (index === 0) {
-      rounds++;
-      if (rounds === 1 && !surpriseShown) {
-        document.getElementById('surprise').style.display = 'block';
-        surpriseShown = true;
+      // After first full round, show surprise and pause slideshow
+      if (index === 0) {
+        rounds++;
+        if (rounds === 1 && !surpriseShown) {
+          document.getElementById('surprise').style.display = 'block';
+          surpriseShown = true;
+
+          // Pause slideshow for 10 seconds
+          clearInterval(slideshowInterval);
+          setTimeout(startSlideshow, 10000);
+        }
       }
-    }
-  }, 3000);
+    }, 3000);
+  }
+
+  // Start slideshow initially
+  startSlideshow();
 </script>
+
 
   
 

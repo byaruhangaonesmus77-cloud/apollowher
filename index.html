@@ -140,7 +140,7 @@
       index = (index + 1) % slides.length;
       slides[index].classList.add('active');
 
-      // After first full round, show surprise and pause slideshow
+      // Only trigger surprise after first full round
       if (index === 0) {
         rounds++;
         if (rounds === 1 && !surpriseShown) {

@@ -102,7 +102,11 @@
 
 
 <!-- Surprise Message (hidden at first) -->
-<p id="surprise" style="display:none; font-size:22px; margin-top:20px; color:#fff; animation: fadeIn 3s;">
+<p id="surprise" style="display:none; font-size:26px; margin-top:20px; 
+   font-family:'Brush Script MT', cursive; 
+   color:#ff1493; /* deep pink */
+   text-shadow: 0 0 10px #fff, 0 0 20px #ff69b4;
+   animation: fadeIn 3s; position: relative; z-index: 10;">
   💖🌹 Hellen, you are my forever love 💕💍  
   🌞✨ You make my world brighter every day 🌈💫  
   🙏💎 Thank you for accepting to be part of my life 💕🌸  
@@ -122,37 +126,6 @@
   }
 </style>
 
-<script>
-  let slides = document.querySelectorAll('.slideshow img');
-  let index = 0;
-  let rounds = 0;
-  let surpriseShown = false;
-  let slideshowInterval;
-
-  function startSlideshow() {
-    slideshowInterval = setInterval(() => {
-      slides[index].classList.remove('active');
-      index = (index + 1) % slides.length;
-      slides[index].classList.add('active');
-
-      // After first full round, show surprise and pause slideshow
-      if (index === 0) {
-        rounds++;
-        if (rounds === 1 && !surpriseShown) {
-          document.getElementById('surprise').style.display = 'block';
-          surpriseShown = true;
-
-          // Pause slideshow for 10 seconds
-          clearInterval(slideshowInterval);
-          setTimeout(startSlideshow, 10000);
-        }
-      }
-    }, 3000);
-  }
-
-  // Start slideshow initially
-  startSlideshow();
-</script>
 
 
   

@@ -100,6 +100,7 @@
   💌 Click for Surprise
 </button>
 
+
 <!-- Surprise Message (hidden at first) -->
 <p id="surprise" style="display:none; font-size:22px; margin-top:20px; color:#fff; animation: fadeIn 3s;">
   💖🌹 Hellen, you are my forever love 💕💍  
@@ -133,7 +134,7 @@
     index = (index + 1) % slides.length;
     slides[index].classList.add('active');
 
-    // Show surprise after first full round of pictures
+    // Show surprise only after first full round
     if (index === 0) {
       rounds++;
       if (rounds === 1 && !surpriseShown) {

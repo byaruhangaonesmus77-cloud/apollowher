@@ -100,8 +100,9 @@
   💌 Click for Surprise
 </button>
 
-<!-- Surprise Message (hidden at first) -->
-<p id="surprise" style="display:none; font-size:28px; margin-top:20px; 
+
+<!-- Surprise Message (shows first for 8 seconds) -->
+<p id="surprise" style="font-size:28px; margin-top:20px; 
    font-family:'Brush Script MT', cursive; 
    color:#ff1493; /* sweet deep pink */
    text-shadow: 0 0 10px #fff, 0 0 20px #ff69b4;
@@ -130,35 +131,24 @@
 <script>
   let slides = document.querySelectorAll('.slideshow img');
   let index = 0;
-  let rounds = 0;
-  let surpriseShown = false;
   let slideshowInterval;
 
-  function startSlideshow() {
+  // Start slideshow only after 8 seconds
+  setTimeout(() => {
+    // Hide the message once slideshow begins
+    document.getElementById('surprise').style.display = 'none';
+
+    // Start slideshow
     slideshowInterval = setInterval(() => {
       slides[index].classList.remove('active');
       index = (index + 1) % slides.length;
       slides[index].classList.add('active');
-
-      // Only trigger surprise after first full round
-      if (index === 0) {
-        rounds++;
-        if (rounds === 1 && !surpriseShown) {
-          let surprise = document.getElementById('surprise');
-          surprise.style.display = 'block';
-          surpriseShown = true;
-
-          // Pause slideshow for 10 seconds
-          clearInterval(slideshowInterval);
-          setTimeout(startSlideshow, 10000);
-        }
-      }
     }, 3000);
-  }
-
-  // Start slideshow initially
-  startSlideshow();
+  }, 8000); // 8 seconds delay
 </script>
+  
+
+
 
 
 
